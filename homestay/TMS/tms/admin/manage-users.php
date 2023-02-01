@@ -8,6 +8,8 @@ header('location:index.php');
 }
 else{ 
 	?>
+
+
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -91,6 +93,7 @@ else{
 							<th>Email Id</th>
 							<th>RegDate </th>
 							<th>Updation Date</th>
+							<th> Active </th>
 						  </tr>
 						</thead>
 						<tbody>
@@ -110,6 +113,15 @@ foreach($results as $result)
 							<td><?php echo htmlentities($result->EmailId);?></td>
 							<td><?php echo htmlentities($result->RegDate);?></td>
 							<td><?php echo htmlentities($result->UpdationDate);?></td>
+							<td>
+					
+    <!-- <form action= "Deleteusers.php" method="POST">
+        <button type="submit" name="delete_student" value="<?=$result->id;?>" class="btn btn-danger">Delete</button>
+    </form> -->
+	
+	
+	<a href="Deleteusers.php?delete_student=<?=$result-> id?>" class="status_btn" onClick="return confirm('chắc xóa không?');">Xóa</a>
+</td>
 						  </tr>
 						 <?php $cnt=$cnt+1;} }?>
 						</tbody>
@@ -177,6 +189,8 @@ foreach($results as $result)
    <script src="js/bootstrap.min.js"></script>
    <!-- /Bootstrap Core JavaScript -->	   
 
+
+   
 </body>
 </html>
 <?php } ?>
